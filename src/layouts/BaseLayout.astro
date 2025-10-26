@@ -2,8 +2,8 @@
 import '../styles/global.css';
 
 const {
-  title = 'Siam Healing | タイ式マッサージサロン',
-  description = '深い呼吸と余白の時間をWebでも。Siam Healingはモバイル体験から設計された癒やしのタイ式マッサージサロンです。',
+  title = 'Siam Healing | タイ古式マッサージ 横浜元町',
+  description = '横浜元町で本格的なタイ古式マッサージを。タイ政府公認の資格を持つセラピストが、お一人ずつ丁寧に施術いたします。',
   lang = 'ja',
   pageClass = ''
 } = Astro.props;
@@ -28,13 +28,15 @@ const {
         <span class="brand-mark" aria-hidden="true">S</span>
         <span>
           <strong>Siam Healing</strong>
-          <small>タイ式マッサージサロン</small>
+          <small>タイ古式マッサージ</small>
         </span>
       </div>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#experience">施術体験</a>
-        <a href="#courses">メニュー</a>
-        <a href="#results">成果</a>
+        <a href="#features">特徴</a>
+        <a href="#flow">施術の流れ</a>
+        <a href="#menu">メニュー</a>
+        <a href="#voice">お客様の声</a>
+        <a href="#info">店舗情報</a>
         <a href="#reservation">予約</a>
       </nav>
       <div class="header-actions">
@@ -52,29 +54,31 @@ const {
     <footer class="shell footer">
       <div class="footer-meta">
         <p class="footer-title">Siam Healing</p>
-        <p>深い呼吸がしたくなる余白を、Webの上にも。</p>
+        <p>横浜元町で心と身体を癒やす、本格タイ古式マッサージ</p>
       </div>
       <div class="footer-grid">
         <div>
           <h3>ご予約</h3>
           <ul>
             <li><a href="#reservation">今すぐ予約</a></li>
-            <li><a href="#reservation">ギフトチケット</a></li>
-            <li><a href="#faq">よくあるご質問</a></li>
+            <li><a href="#menu">メニューを見る</a></li>
+            <li><a href="#flow">施術の流れ</a></li>
           </ul>
         </div>
         <div>
           <h3>営業時間</h3>
-          <p>11:00 - 22:00（最終受付 20:30）</p>
+          <p>平日: 11:00 - 22:00（最終受付 21:00）</p>
+          <p>土日祝: 10:00 - 20:00（最終受付 19:00）</p>
           <p>水曜定休</p>
         </div>
         <div>
           <h3>アクセス</h3>
-          <p>バンコク・サトーン通り 18-3</p>
-          <p>BTSチョンノンシー駅より徒歩5分</p>
+          <p>〒231-0861 神奈川県横浜市中区元町1-18-3 元町ビル3F</p>
+          <p>みなとみらい線「元町・中華街駅」より徒歩3分</p>
+          <p>JR「石川町駅」より徒歩8分</p>
         </div>
       </div>
-      <small>© {new Date().getFullYear()} Siam Healing Massage Therapy.</small>
+      <small>© {new Date().getFullYear()} Siam Healing All Rights Reserved.</small>
     </footer>
   </body>
 </html>

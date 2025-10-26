@@ -1,131 +1,139 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const heroStats = [
-  { value: '+68%', label: 'モバイル経由の予約率', description: 'フォーム導線の統一で離脱率を半減' },
-  { value: '200%', label: 'Web新規予約', description: '初回特典をスマホで完結させる導線に最適化' },
-  { value: '+72%', label: '平均セッション時間', description: 'ストーリーテリングで体験価値を可視化' }
+const features = [
+  { icon: '🌿', label: 'アロマハーブボール', description: 'タイ産ハーブで作られた温熱ボールで深くリラックス' },
+  { icon: '👐', label: '古式ストレッチ', description: '2000年の歴史を持つ伝統的な技法で全身をほぐす' },
+  { icon: '✨', label: '完全個人施術', description: 'お一人ずつゆっくり丁寧に施術させていただきます' }
 ];
 
-const beforeAfter = [
+const shopFeatures = [
   {
-    title: 'Before',
+    title: '本格的な技法',
     points: [
-      '情報が古く更新も止まったまま',
-      'スマホ表示時の文字サイズが小さく離脱率が高い',
-      '予約方法が電話のみで新規のお客様が迷子に'
+      'タイ政府公認の資格を持つ経験豊富なセラピスト',
+      '2000年以上の歴史を持つタイ古式マッサージの伝統技法',
+      '一人ひとりの体調に合わせたオーダーメイド施術'
     ]
   },
   {
-    title: 'After',
+    title: '至福の空間',
     points: [
-      '施術メニューと効果をモバイルカードで再編成',
-      '予約導線を一本化し、CTAの文言をシナリオ別に最適化',
-      '世界観を守りながらも200%の新規予約を実現'
+      'タイの寺院をイメージした静謐な空間設計',
+      'アロマとハーブの香りで五感を癒やす',
+      '都会の喧騒から離れた心静かなひととき'
     ]
   }
 ];
 
-const dailyScenarios = [
+const dailyRecommendations = [
   {
     time: 'Morning',
-    label: '朝 — 目覚めを整える',
-    menu: 'ハーバル・ディープブレス 60min',
-    detail: '体の巡りを整えるショートコース。出勤前の深呼吸習慣に。',
-    accent: '初回 5,500 THB → 4,400 THB'
+    label: '朝 — 体の目覚めをサポート',
+    menu: 'タイ古式ストレッチ 60分',
+    detail: '朝の身体をやさしくほぐし、一日の活力をサポート。呼吸と共に行う古式のストレッチで巡りを整えます。',
+    accent: '初回限定 10%オフ'
   },
   {
     time: 'Day',
-    label: '昼 — 仕事の合間',
-    menu: 'タイ古式ストレッチ 90min',
-    detail: 'ガイド付きのストレッチと指圧で、巡りと姿勢を同時に整える。',
-    accent: 'リピーター人気 No.1'
+    label: '昼 — 仕事のリフレッシュ',
+    menu: 'ハーバルボールケア 90分',
+    detail: '温熱ハーブボールで首・肩の凝りをほぐし、午後も快適に過ごせます。',
+    accent: 'ビジネスランチタイム対応'
   },
   {
     time: 'Night',
-    label: '夜 — 深い休息へ',
-    menu: 'ロイヤルバームセラピー 120min',
-    detail: '温熱ハーブボールとアロマで、自律神経を優しくほどく贅沢ケア。',
-    accent: 'ペア来店で10%オフ'
+    label: '夜 — 深い休息とリラクゼーション',
+    menu: 'アロマリラックス 120分',
+    detail: '精油マッサージで全身をリラックス。翌朝も爽やかさが持続します。',
+    accent: '最終受付まで対応'
   }
 ];
 
 const courses = [
   {
-    name: 'Herbal Awakening',
+    name: 'Thai Traditional Massage',
+    nameJP: 'タイ古式マッサージ',
     duration: '60分',
-    price: '5,500 THB',
-    ideal: '初回 / クイックリフレッシュ',
-    effects: ['ハーブボール温熱', '首肩のディープリリース', 'ハーブティーのテイスティング'],
-    result: '短時間で心拍と呼吸を整え、集中力を取り戻す'
+    price: '4,800円',
+    ideal: '初回の方におすすめ',
+    effects: ['全身のストレッチと指圧', '血行促進', 'コリの解消'],
+    result: '姿勢が良くなり、疲労回復に効果的。古式の技法で深くほぐします。'
   },
   {
-    name: 'Thai Stretch Flow',
+    name: 'Herbal Ball Therapy',
     duration: '90分',
-    price: '7,800 THB',
-    ideal: 'リピーター / 全身の巡り',
-    effects: ['タイ古式ストレッチ', '骨盤調整マニュアルケア', '足浴＋リフレクソロジー'],
-    result: '可動域を広げ、深い睡眠に繋がる循環をサポート'
+    price: '6,800円',
+    ideal: '肩こり・腰痛の方に',
+    effects: ['温熱ハーブボール', '深部温め', '疲労回復', 'デトックス効果'],
+    result: '温めることで筋肉の深部までほぐし、翌日まで続く軽さを実感'
   },
   {
-    name: 'Royal Botanica',
+    name: 'Aromatherapy Relaxation',
     duration: '120分',
-    price: '10,500 THB',
-    ideal: 'ギフト / ご褒美ケア',
-    effects: ['シグネチャーアロマオイル', 'バンコク寺院モチーフのマインドフルネス', 'アフターカウンセリング'],
-    result: '五感すべてを満たし、翌日まで続く軽さと艶を実感'
+    price: '9,800円',
+    ideal: 'ギフト・ご褒美ケア',
+    effects: ['精油マッサージ', '完全リラクゼーション', '自律神経調整', 'アフターケア'],
+    result: '五感を満たす贅沢なひととき。心身ともに深く癒やされます。'
   }
 ];
 
-const experienceSteps = [
+const treatmentSteps = [
   {
-    title: '01. 体験リサーチ',
-    description: '五感のチェックシートで香り・温度・音の好みを共有。心と身体の現在地を一緒に確認します。',
-    tone: 'Dawn',
-    detail: '柔らかな朝霧の照明と、ベルガモットの香りで呼吸を整える導入。'
+    title: '01. カウンセリング',
+    description: 'お身体の状態やお悩みをお伺いします。施術の強さやお好みを確認し、最適なプランをご提案いたします。',
+    icon: '💬'
   },
   {
-    title: '02. コンセプトメイキング',
-    description: '「深呼吸がしたくなる余白」を軸に、カスタムメニューを設計します。',
-    tone: 'Noon',
-    detail: '寺院のモチーフから着想したリズムで、心身の緊張を緩める準備タイム。'
+    title: '02. 着替え・準備',
+    description: 'リラックスできるお着替えをご用意しております。アメニティはすべて完備しておりますので手ぶらでお越しください。',
+    icon: '👕'
   },
   {
-    title: '03. デザイン・実装',
-    description: '施術フローとFAQをスマホ中心に構築。フォームの入力進行度を可視化し不安をゼロへ。',
-    tone: 'Dusk',
-    detail: '葉脈が揺らめくような照明演出で、施術中の没入感を高めます。'
+    title: '03. 施術',
+    description: 'タイ古式マッサージの技法で、やさしく丁寧に施術いたします。お身体の声を聞きながら、一人ひとりに合わせた施術を行います。',
+    icon: '👐'
   },
   {
-    title: '04. 運用サポート',
-    description: 'キャンペーン更新ガイド、SNS連携、レビュー返信テンプレートまでをセットでご提供。',
-    tone: 'Night',
-    detail: '施術後のアフターケアを自然と続けられる、音声ガイドを含むケアノート。'
+    title: '04. アフターケア',
+    description: '施術後はハーブティーと共に、ゆっくりとおくつろぎいただけます。セルフケアの方法もご案内いたします。',
+    icon: '☕'
   }
 ];
 
 const voices = [
   {
-    name: '初回のお客様',
-    role: 'IT企業 / 30代',
-    message: '「予約までの流れが手のひらの中で完結。香りや音まで想像できて、初めてでも安心でした。」'
+    name: 'T様',
+    role: '会社員 / 30代',
+    message: '「肩こりがひどくて来店しましたが、施術後は本当に身体が軽くなりました。週1で通っています！」'
   },
   {
-    name: 'リピーター',
-    role: '旅行ライター / 40代',
-    message: '「時間帯ごとのおすすめがわかりやすく、仕事の合間にどのコースが良いかすぐ選べます。」'
+    name: 'M様',
+    role: '主婦 / 40代',
+    message: '「初めてのタイ古式マッサージでしたが、とても優しく丁寧に施術していただき感動しました。リピート確定です。」'
   },
   {
-    name: 'ギフト利用',
-    role: '外資系エグゼクティブ / 50代',
-    message: '「ギフト用の文言とカラーが用意されていて、贈る相手にも世界観が伝わるのが嬉しいです。」'
+    name: 'K様',
+    role: '学生 / 20代',
+    message: '「ハーブボールの温かさが最高です。ストレスが溜まっていたのですが、心も身体もすっきりしました。」'
   }
 ];
 
 const checklist = [
-  '当日は10分前のご来店を推奨しております。',
-  'お着替え・アメニティを完備しておりますので手ぶらでお越しください。',
-  '体調やアレルギーについて事前にフォームへご記入ください。'
+  '当日は10分前のご来店をお願いしております。',
+  'お着替え・タオル・アメニティは完備しております。',
+  '体調不良時や妊娠中の方は事前にご相談ください。',
+  'アレルギーがございましたらお申し付けください。'
+];
+
+const businessHours = [
+  { day: '月曜日', hours: '11:00 - 22:00（最終受付 21:00）' },
+  { day: '火曜日', hours: '11:00 - 22:00（最終受付 21:00）' },
+  { day: '水曜日', hours: '定休日' },
+  { day: '木曜日', hours: '11:00 - 22:00（最終受付 21:00）' },
+  { day: '金曜日', hours: '11:00 - 22:00（最終受付 21:00）' },
+  { day: '土曜日', hours: '10:00 - 20:00（最終受付 19:00）' },
+  { day: '日曜日', hours: '10:00 - 20:00（最終受付 19:00）' }
 ];
 ---
 
@@ -134,125 +142,80 @@ const checklist = [
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="tag">Thai Massage Salon</p>
-      <h1>深い呼吸と余白の時間を、Webでも。</h1>
+      <h1>心と身体を癒やす、<br>本格タイ古式マッサージ</h1>
       <p class="hero-sub">
-        森の深緑とタイの伝統モチーフを纏ったSiam Healingのデジタル体験。店舗と変わらぬ安心感で、初めての方も迷わず予約へたどり着けます。
+        2000年の歴史を誇るタイ古式マッサージを、横浜で体験。資格を持つセラピストが、一人ひとりの身体に合わせて丁寧に施術いたします。
       </p>
       <div class="hero-actions">
         <a class="button" href="#reservation">今すぐ予約</a>
-        <a class="button secondary" href="#contact">ご相談はこちら</a>
+        <a class="button secondary" href="#menu">メニューを見る</a>
       </div>
       <div class="hero-metrics">
-        {heroStats.map((stat) => (
-          <article class="metric-card card" data-label={stat.label}>
-            <p class="metric-value">{stat.value}</p>
-            <p class="metric-label">{stat.label}</p>
-            <p class="metric-description">{stat.description}</p>
+        {features.map((feature) => (
+          <article class="metric-card card" data-label={feature.label}>
+            <p class="metric-icon">{feature.icon}</p>
+            <p class="metric-label">{feature.label}</p>
+            <p class="metric-description">{feature.description}</p>
           </article>
         ))}
       </div>
     </div>
     <div class="hero-visual">
       <div class="visual-frame">
-        <span class="visual-caption">森の静けさを宿した施術ルーム</span>
+        <span class="visual-caption">静寂に包まれた施術ルーム</span>
         <div class="visual-gradient"></div>
       </div>
       <div class="visual-thumbs">
         <div>
-          <p>アロマオイルとハーブのディテールを写真＋テクスチャで表現</p>
+          <p>タイ産ハーブボールとアロマオイルを使用した本格施術</p>
         </div>
         <div>
-          <p>葉脈が揺れるインタラクションを今後追加予定</p>
+          <p>横浜元町よりアクセス良好。完全予約制でプライバシーも安心</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="shell section-gap" id="case">
+  <section class="shell section-gap" id="features">
     <header class="section-heading">
-      <span>Before → After</span>
-      <h2>癒やしの価値を損なわずに、モバイル中心へ再構築</h2>
+      <span>Our Features</span>
+      <h2>本格的な技法と至福の空間</h2>
     </header>
     <div class="grid">
-      {beforeAfter.map((item) => (
+      {shopFeatures.map((feature) => (
         <article class="card before-after">
-          <h3>{item.title}</h3>
+          <h3>{feature.title}</h3>
           <ul>
-            {item.points.map((point) => <li>{point}</li>)}
+            {feature.points.map((point) => <li>{point}</li>)}
           </ul>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="concept shell section-gap" id="concept">
+  <section class="shell section-gap" id="flow">
     <header class="section-heading">
-      <span>Design Concept</span>
-      <h2>「深呼吸がしたくなる余白」をデザインに。</h2>
-    </header>
-    <div class="concept-grid">
-      <article class="card concept-card">
-        <h3>Visual Language</h3>
-        <p>
-          深いグリーンとサンドベージュを基調に、ロゴカラーのゴールドでアクセント。柔らかな陰影でアナログな温かさを描き出し、
-          画面越しでも身体がほぐれる安心感を演出しました。
-        </p>
-        <div class="palette">
-          <span style="--swatch:#064E3B">#064E3B</span>
-          <span style="--swatch:#0f766e">#0F766E</span>
-          <span style="--swatch:#d6c7a1">#D6C7A1</span>
-          <span style="--swatch:#caa969">#CAA969</span>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h3>Content Architecture</h3>
-        <p>
-          「お悩み → おすすめコース → 予約」の順で導くストーリー設計。施術時間・価格・効果を比較できるカードUIで不安を解消し、
-          モバイルでも読みやすい余白とタイプスケールを追求しました。
-        </p>
-        <ul class="concept-list">
-          <li>スクロールに合わせて背景が透過 → 深緑へ変化するナビゲーション</li>
-          <li>クーポン・回数券はタグで整理し、ユーザー属性で並び替え</li>
-          <li>多言語切り替えでも崩れない、アイコンとラベルのモジュール化</li>
-        </ul>
-      </article>
-      <article class="card concept-card">
-        <h3>Interaction</h3>
-        <p>
-          葉脈がふわりと揺れるスクロールアニメーションを設計（今後実装予定）。フォームでは入力進行度を可視化し、安心感を補強します。
-        </p>
-        <div class="interaction-note">
-          <p>フォーム導線は「今すぐ予約」と「ご相談」のCTAを2種類用意し、目的別に自然誘導。</p>
-          <p>初回 / リピーター / ギフトのシナリオ別CTAで迷いをゼロに。</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="shell section-gap" id="experience">
-    <header class="section-heading">
-      <span>Experience Flow</span>
-      <h2>施術体験を自然の移ろいになぞらえて構成。</h2>
+      <span>Treatment Flow</span>
+      <h2>施術の流れ</h2>
     </header>
     <div class="grid experience-grid">
-      {experienceSteps.map((step) => (
+      {treatmentSteps.map((step) => (
         <article class="card experience-card">
-          <p class="eyebrow">{step.tone}</p>
+          <p class="step-icon">{step.icon}</p>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
-          <p class="card-detail">{step.detail}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="dynamic shell section-gap" id="daily">
+  <section class="dynamic shell section-gap" id="recommendation">
     <header class="section-heading">
-      <span>Dynamic Menu</span>
-      <h2>朝・昼・夜でおすすめメニューが切り替わる設計。</h2>
+      <span>Time Based Menu</span>
+      <h2>時間帯別おすすめメニュー</h2>
     </header>
     <div class="dynamic-grid">
-      {dailyScenarios.map((scenario) => (
+      {dailyRecommendations.map((scenario) => (
         <article class="card dynamic-card" data-time={scenario.time}>
           <p class="dynamic-time">{scenario.label}</p>
           <h3>{scenario.menu}</h3>
@@ -263,16 +226,16 @@ const checklist = [
     </div>
   </section>
 
-  <section class="shell section-gap" id="courses">
+  <section class="shell section-gap" id="menu">
     <header class="section-heading">
-      <span>Courses</span>
-      <h2>施術時間・価格・効果を比較できるカードUI。</h2>
+      <span>Menu</span>
+      <h2>施術メニュー</h2>
     </header>
     <div class="grid course-grid">
       {courses.map((course) => (
         <article class="card course-card">
           <div class="course-header">
-            <h3>{course.name}</h3>
+            <h3>{course.nameJP || course.name}</h3>
             <p class="course-meta">{course.duration} / {course.price}</p>
             <p class="course-ideal">{course.ideal}</p>
           </div>
@@ -280,29 +243,42 @@ const checklist = [
             {course.effects.map((effect) => <li>{effect}</li>)}
           </ul>
           <p class="course-result">{course.result}</p>
-          <a class="button secondary" href="#reservation">このコースで予約</a>
+          <a class="button secondary" href="#reservation">このメニューで予約</a>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="shell section-gap results" id="results">
+  <section class="shell section-gap shop-info" id="info">
     <header class="section-heading">
-      <span>Results</span>
-      <h2>予約導線最適化の成果。</h2>
+      <span>Access & Hours</span>
+      <h2>店舗情報</h2>
     </header>
-    <div class="grid results-grid">
-      <article class="card result-card">
-        <h3>モバイル経由の予約率 +68%</h3>
-        <p>フォームステップの可視化と入力補助で、安心感を高めながらコンバージョン向上。</p>
+    <div class="grid info-grid">
+      <article class="card info-card">
+        <h3>営業時間</h3>
+        <dl class="hours-list">
+          {businessHours.map((item) => (
+            <div class="hours-item">
+              <dt>{item.day}</dt>
+              <dd>{item.hours}</dd>
+            </div>
+          ))}
+        </dl>
       </article>
-      <article class="card result-card">
-        <h3>Web新規予約 200%</h3>
-        <p>初回CTAをゴールド、リピーターをグリーン、ギフトをサンド色で色分けし迷いを削減。</p>
+      <article class="card info-card">
+        <h3>アクセス</h3>
+        <p class="access-address">〒231-0861<br>神奈川県横浜市中区元町1-18-3<br>元町ビル3F</p>
+        <p class="access-note">みなとみらい線「元町・中華街駅」より徒歩3分<br>JR「石川町駅」より徒歩8分</p>
       </article>
-      <article class="card result-card">
-        <h3>口コミ投稿 1.8倍</h3>
-        <p>施術後のケアノートからレビュー投稿導線へ自然に遷移し、体験の温度感をそのまま維持。</p>
+      <article class="card info-card">
+        <h3>ご予約について</h3>
+        <ul class="reservation-info">
+          <li>完全予約制となります</li>
+          <li>当日予約も可能（空き状況による）</li>
+          <li>キャンセルは前日までにご連絡ください</li>
+          <li>初回の方には特典ございます</li>
+        </ul>
       </article>
     </div>
   </section>
@@ -310,7 +286,7 @@ const checklist = [
   <section class="shell section-gap voice" id="voice">
     <header class="section-heading">
       <span>Voice</span>
-      <h2>お客様の声はボイスノート風カードで温度感を再現。</h2>
+      <h2>お客様の声</h2>
     </header>
     <div class="grid voice-grid">
       {voices.map((voice) => (
@@ -326,7 +302,7 @@ const checklist = [
   <section class="shell section-gap reservation" id="reservation">
     <header class="section-heading">
       <span>Reservation</span>
-      <h2>リラックスした気持ちのまま、予約完了まで。</h2>
+      <h2>ご予約フォーム</h2>
     </header>
     <div class="reservation-wrapper">
       <div class="reservation-progress">
@@ -334,97 +310,64 @@ const checklist = [
         <ol>
           <li>
             <span>Step 01</span>
-            <strong>コースを選ぶ</strong>
-            <p>朝・昼・夜のおすすめから最適なコースを確認。</p>
+            <strong>メニューを選ぶ</strong>
+            <p>お好みの施術メニューをお選びください。</p>
           </li>
           <li>
             <span>Step 02</span>
-            <strong>コンディション記入</strong>
-            <p>アレルギーや重点ケア部位をフォームで共有。</p>
+            <strong>ご希望日時を選択</strong>
+            <p>ご都合の良い日時をご指定ください。</p>
           </li>
           <li>
             <span>Step 03</span>
-            <strong>決済と確認</strong>
-            <p>ウォレットアプリ決済に対応。確認メールで当日の流れをご案内。</p>
+            <strong>確認・送信</strong>
+            <p>当日のご案内メールをお送りします。</p>
           </li>
         </ol>
       </div>
       <form class="reservation-form card" aria-labelledby="reservation-title">
-        <div class="cta-switcher" role="radiogroup" aria-label="目的に合わせてお選びください">
-          <input type="radio" name="scenario" id="cta-first" defaultChecked />
-          <label for="cta-first">初回限定</label>
-          <input type="radio" name="scenario" id="cta-repeat" />
-          <label for="cta-repeat">リピーター</label>
-          <input type="radio" name="scenario" id="cta-gift" />
-          <label for="cta-gift">ギフト</label>
-        </div>
+        <h3 id="reservation-title">ご予約はこちら</h3>
         <p class="reservation-intro">
-          直近7日以内の空き枠をご案内します。チャットコンシェルジュが1時間以内に折り返しご連絡します。
+          ご希望の日時とメニューをご記入の上、お送りください。担当より折り返しご連絡いたします。
         </p>
         <label>
-          ご希望日時
-          <input type="datetime-local" required />
-        </label>
-        <label>
-          参加人数
-          <select required>
-            <option value="1">1名</option>
-            <option value="2">2名</option>
-            <option value="3">3名</option>
-          </select>
+          お名前
+          <input type="text" required />
         </label>
         <label>
           メールアドレス
           <input type="email" placeholder="you@example.com" required />
         </label>
         <label>
-          ご相談事項
-          <textarea rows="3" placeholder="重点的にほぐしたい部位や、香りのお好みなどをご記入ください"></textarea>
+          電話番号
+          <input type="tel" placeholder="090-1234-5678" required />
+        </label>
+        <label>
+          ご希望日時
+          <input type="datetime-local" required />
+        </label>
+        <label>
+          メニュー
+          <select required>
+            <option value="">選択してください</option>
+            <option value="60min">タイ古式マッサージ 60分</option>
+            <option value="90min">ハーバルボールケア 90分</option>
+            <option value="120min">アロマリラックス 120分</option>
+          </select>
+        </label>
+        <label>
+          ご希望・ご相談事項
+          <textarea rows="4" placeholder="体調、アレルギー、重点的にほぐしたい部位などお気軽にご記入ください"></textarea>
         </label>
         <fieldset class="reservation-checklist">
-          <legend>予約前チェックリスト</legend>
+          <legend>ご来店前の確認</legend>
           <ul>
             {checklist.map((item) => <li>{item}</li>)}
           </ul>
         </fieldset>
-        <button class="button" type="submit">内容を送信する</button>
+        <button class="button" type="submit">予約内容を送信する</button>
       </form>
     </div>
-  </section>
-
-  <section class="shell section-gap contact" id="contact">
-    <header class="section-heading">
-      <span>Support</span>
-      <h2>運用サポートと多言語対応で、安心の継続運用。</h2>
-    </header>
-    <div class="grid contact-grid">
-      <article class="card contact-card">
-        <h3>多言語サポート</h3>
-        <p>日本語 / 英語 / タイ語の3言語でガイドを用意。改行制御と可変フォントで、美しいタイポグラフィを維持します。</p>
-      </article>
-      <article class="card contact-card">
-        <h3>ウォレット決済</h3>
-        <p>スマホからのウォレットアプリ決済・ギフトコード入力に対応。Cloudflare PagesとFunctionsで安全に決済連携。</p>
-      </article>
-      <article class="card contact-card">
-        <h3>レビュー運用</h3>
-        <p>SNS連携、レビュー返信テンプレート、キャンペーン更新ガイドを整備。継続的な予約流入を支えます。</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="shell section-gap owner" id="owner">
-    <header class="section-heading">
-      <span>Owner's Voice</span>
-      <h2>香りや静けさまで伝わる構成に驚きました。</h2>
-    </header>
-    <article class="card owner-card">
-      <p>
-        「店舗の香りや静けさまで伝わる構成に驚きました。スマホからの予約が一気に増え、リピーターの方も
-        『サイトが見やすくなって安心した』と好評です。」
-      </p>
-      <p class="owner-name">Siam Healing オーナー 藤原 様</p>
-    </article>
   </section>
 </BaseLayout>
 
@@ -489,6 +432,11 @@ const checklist = [
     font-size: 2rem;
     font-weight: 600;
     color: var(--color-gold);
+  }
+
+  .metric-icon {
+    margin: 0;
+    font-size: 2.5rem;
   }
 
   .metric-label {
@@ -631,6 +579,12 @@ const checklist = [
     margin-top: 1rem;
     font-size: 0.9rem;
     color: rgba(214, 199, 161, 0.7);
+  }
+
+  .step-icon {
+    margin: 0 0 1rem;
+    font-size: 3rem;
+    text-align: center;
   }
 
   .dynamic-grid {
@@ -881,28 +835,60 @@ const checklist = [
     font-size: 0.9rem;
   }
 
-  .contact-grid,
-  .owner-card {
+  .info-grid {
     gap: 1.2rem;
   }
 
-  .contact-card h3 {
+  .info-card h3 {
     margin-top: 0;
     font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 
-  .owner-card {
-    display: grid;
-    gap: 1rem;
-    font-size: 1rem;
-  }
-
-  .owner-name {
+  .hours-list {
     margin: 0;
-    font-family: var(--font-sans);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .hours-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(214, 199, 161, 0.1);
+  }
+
+  .hours-item:last-child {
+    border-bottom: none;
+  }
+
+  .hours-item dt,
+  .hours-item dd {
+    margin: 0;
+  }
+
+  .hours-item dt {
+    font-weight: 600;
+  }
+
+  .access-address {
+    margin: 0 0 1rem;
+    line-height: 1.8;
+  }
+
+  .access-note {
+    margin: 0;
+    font-size: 0.9rem;
     color: rgba(214, 199, 161, 0.8);
+  }
+
+  .reservation-info {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.6rem;
   }
 
   @media (min-width: 768px) {
@@ -951,7 +937,7 @@ const checklist = [
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     }
 
-    .contact-grid {
+    .info-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
