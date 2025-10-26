@@ -1,0 +1,244 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Siam Healing | タイ式マッサージサロン',
+  description = '深い呼吸と余白の時間をWebでも。Siam Healingはモバイル体験から設計された癒やしのタイ式マッサージサロンです。',
+  lang = 'ja',
+  pageClass = ''
+} = Astro.props;
+---
+
+<html lang={lang} class={`page ${pageClass}`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="shell header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>
+          <strong>Siam Healing</strong>
+          <small>タイ式マッサージサロン</small>
+        </span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#experience">施術体験</a>
+        <a href="#courses">メニュー</a>
+        <a href="#results">成果</a>
+        <a href="#reservation">予約</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" type="button" aria-label="言語を切り替え">
+          日本語
+          <span aria-hidden="true">／</span>
+          EN
+        </button>
+        <a class="button header-cta" href="#reservation">今すぐ予約</a>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="shell footer">
+      <div class="footer-meta">
+        <p class="footer-title">Siam Healing</p>
+        <p>深い呼吸がしたくなる余白を、Webの上にも。</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h3>ご予約</h3>
+          <ul>
+            <li><a href="#reservation">今すぐ予約</a></li>
+            <li><a href="#reservation">ギフトチケット</a></li>
+            <li><a href="#faq">よくあるご質問</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>営業時間</h3>
+          <p>11:00 - 22:00（最終受付 20:30）</p>
+          <p>水曜定休</p>
+        </div>
+        <div>
+          <h3>アクセス</h3>
+          <p>バンコク・サトーン通り 18-3</p>
+          <p>BTSチョンノンシー駅より徒歩5分</p>
+        </div>
+      </div>
+      <small>© {new Date().getFullYear()} Siam Healing Massage Therapy.</small>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  .shell {
+    position: relative;
+    z-index: 1;
+    padding: 1.4rem clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    position: sticky;
+    top: 0;
+    background: rgba(7, 47, 37, 0.65);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(214, 199, 161, 0.18);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    color: var(--color-sand);
+    font-family: var(--font-sans);
+  }
+
+  .brand strong {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand small {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(214, 199, 161, 0.12);
+    border: 1px solid rgba(214, 199, 161, 0.3);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: none;
+    gap: 1.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .lang-toggle {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: rgba(214, 199, 161, 0.78);
+    background: transparent;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-slow);
+  }
+
+  .lang-toggle:hover,
+  .lang-toggle:focus-visible {
+    border-color: rgba(214, 199, 161, 0.5);
+    color: var(--color-sand);
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  main {
+    padding-bottom: 5rem;
+  }
+
+  .footer {
+    display: grid;
+    gap: 2rem;
+    background: rgba(7, 47, 37, 0.85);
+    border-top: 1px solid rgba(214, 199, 161, 0.15);
+  }
+
+  .footer-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 1.8rem;
+  }
+
+  .footer-grid h3 {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(214, 199, 161, 0.8);
+  }
+
+  .footer-grid p,
+  .footer-grid ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.88rem;
+  }
+
+  .footer-grid li + li {
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .header-cta {
+      display: inline-flex;
+    }
+
+    main {
+      padding-bottom: 6.5rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .header {
+      gap: 3rem;
+    }
+
+    .header-actions {
+      gap: 1.2rem;
+    }
+  }
+</style>
